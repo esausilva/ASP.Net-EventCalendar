@@ -33,5 +33,6 @@ EventDAO class is the main class which interacts with the database and SQL Serve
 	event_end			DateTime
 	all_day				Bit
 
+To open just open Visual Studio then Open Website and select the solution folder
 
 **jgezau**
