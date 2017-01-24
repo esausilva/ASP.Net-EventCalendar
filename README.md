@@ -22,17 +22,19 @@ Features of this event calendar
 
 ### Info
 
-EventDAO class is the main class which interacts with the database and SQL Server express edition has been used. The event information is stored in a table named ‘event’ in the database.
+`EventDAO` class is the main class which interacts with the database and SQL Server express edition has been used. The event information is stored in a table named `Event` in the database.
 
 ### DB Table Format
 
-	event_id			int [identity]
-	description		VarChar(200)
-	title					VarChar(100)
-	event_start		DateTime
-	event_end			DateTime
-	all_day				Bit
+|Column Name|Data Type|
+|-----------|---------|
+|event_id|int [identity]|
+|description|VarChar(200)|
+|title|VarChar(100)|
+|event_start|DateTime|
+|event_end|DateTime|
+|all_day|Bit|
 
-To open just open Visual Studio then Open Website and select the solution folder
+To open the project, just open Visual Studio then **File -> Open Website** and select the solution folder
 
-**jgezau**
+**Esau Silva**

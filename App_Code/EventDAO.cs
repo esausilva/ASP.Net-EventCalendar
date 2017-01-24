@@ -25,7 +25,7 @@ public class EventDAO
     {   
         List<CalendarEvent> events = new List<CalendarEvent>();
         SqlConnection con = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand("SELECT event_id, description, title, event_start, event_end, all_day FROM ECICalendarEvent_Test where event_start>=@start AND event_end<=@end", con);
+        SqlCommand cmd = new SqlCommand("SELECT event_id, description, title, event_start, event_end, all_day FROM Event where event_start>=@start AND event_end<=@end", con);
         cmd.Parameters.Add("@start", SqlDbType.DateTime).Value = start;
         cmd.Parameters.Add("@end", SqlDbType.DateTime).Value = end;
         
@@ -58,7 +58,7 @@ public class EventDAO
     public static void updateEvent(int id, String title, String description)
     {
         SqlConnection con = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand("UPDATE ECICalendarEvent_Test SET title=@title, description=@description WHERE event_id=@event_id", con);
+        SqlCommand cmd = new SqlCommand("UPDATE Event SET title=@title, description=@description WHERE event_id=@event_id", con);
         cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = title;
         cmd.Parameters.Add("@description", SqlDbType.VarChar).Value= description;
         cmd.Parameters.Add("@event_id", SqlDbType.Int).Value = id;
@@ -74,7 +74,7 @@ public class EventDAO
     public static void updateEventTime(int id, DateTime start, DateTime end, bool allDay)
     {
         SqlConnection con = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand("UPDATE ECICalendarEvent_Test SET event_start=@event_start, event_end=@event_end, all_day=@all_day WHERE event_id=@event_id", con);
+        SqlCommand cmd = new SqlCommand("UPDATE Event SET event_start=@event_start, event_end=@event_end, all_day=@all_day WHERE event_id=@event_id", con);
         cmd.Parameters.Add("@event_start", SqlDbType.DateTime).Value = start;
         cmd.Parameters.Add("@event_end", SqlDbType.DateTime).Value = end;
         cmd.Parameters.Add("@event_id", SqlDbType.Int).Value = id;
@@ -91,7 +91,7 @@ public class EventDAO
     public static void deleteEvent(int id)
     {
         SqlConnection con = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand("DELETE FROM ECICalendarEvent_Test WHERE (event_id = @event_id)", con);
+        SqlCommand cmd = new SqlCommand("DELETE FROM Event WHERE (event_id = @event_id)", con);
         cmd.Parameters.Add("@event_id", SqlDbType.Int).Value = id;
 
         using (con)
@@ -108,7 +108,7 @@ public class EventDAO
 
         //insert
         SqlConnection con = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand("INSERT INTO ECICalendarEvent_Test(title, description, event_start, event_end, all_day) VALUES(@title, @description, @event_start, @event_end, @all_day)", con);
+        SqlCommand cmd = new SqlCommand("INSERT INTO Event(title, description, event_start, event_end, all_day) VALUES(@title, @description, @event_start, @event_end, @all_day)", con);
         cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = cevent.title;
         cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = cevent.description;
         cmd.Parameters.Add("@event_start", SqlDbType.DateTime).Value = cevent.start;
@@ -122,7 +122,7 @@ public class EventDAO
             cmd.ExecuteNonQuery();
 
             //get primary key of inserted row
-            cmd = new SqlCommand("SELECT max(event_id) FROM ECICalendarEvent_Test where title=@title AND description=@description AND event_start=@event_start AND event_end=@event_end AND all_day=@all_day", con);
+            cmd = new SqlCommand("SELECT max(event_id) FROM Event where title=@title AND description=@description AND event_start=@event_start AND event_end=@event_end AND all_day=@all_day", con);
             cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = cevent.title;
             cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = cevent.description;
             cmd.Parameters.Add("@event_start", SqlDbType.DateTime).Value = cevent.start;
