@@ -37,4 +37,8 @@ Features of this event calendar
 
 To open the project, just open Visual Studio then **File -> Open Website** and select the solution folder
 
+## Preview
+
+![Imgur](http://i.imgur.com/ajPxjOnl.png)
+
 **Esau Silva**
