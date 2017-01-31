@@ -1,20 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head runat="server">
-    <title></title>
-    <link href="css/cupertino/jquery-ui-1.10.3.min.css" rel="stylesheet" type="text/css" />
-    <link href="fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
-    <link href="css/jquery.qtip-2.2.0.css" rel="stylesheet" type="text/css" />
-
-    <script src="jquery/moment-2.8.1.min.js" type="text/javascript"></script>
-    <script src="jquery/jquery-2.1.1.js" type="text/javascript"></script>
-    <script src="jquery/jquery-ui-1.11.1.js" type="text/javascript"></script>
-    <script src="jquery/jquery.qtip-2.2.0.js" type="text/javascript"></script>
-    <script src="fullcalendar/fullcalendar-2.0.3.js" type="text/javascript"></script>
-    <script src="scripts/calendarscript.js" type="text/javascript"></script>
-    <%--<script src="jquery/jquery-ui-timepicker-addon-1.4.5.js" type="text/javascript"></script>--%>
+    <title>ASP.NET FullCalendar</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" rel="stylesheet" />
 
     <style type='text/css'>
         body
@@ -69,12 +61,12 @@
     </div>
     <div id="updatedialog" style="font: 70% 'Trebuchet MS', sans-serif; margin: 50px;display: none;"
         title="Update or Delete Event">
-        <table cellpadding="0" class="style1">
+        <table class="style1">
             <tr>
                 <td class="alignRight">
                     Name:</td>
                 <td class="alignLeft">
-                    <input id="eventName" type="text" /><br /></td>
+                    <input id="eventName" type="text" size="33" /><br /></td>
             </tr>
             <tr>
                 <td class="alignRight">
@@ -97,12 +89,12 @@
         </table>
     </div>
     <div id="addDialog" style="font: 70% 'Trebuchet MS', sans-serif; margin: 50px;" title="Add Event">
-    <table cellpadding="0" class="style1">
+    <table class="style1">
             <tr>
                 <td class="alignRight">
                     Name:</td>
                 <td class="alignLeft">
-                    <input id="addEventName" type="text" size="50" /><br /></td>
+                    <input id="addEventName" type="text" size="33" /><br /></td>
             </tr>
             <tr>
                 <td class="alignRight">
@@ -128,5 +120,12 @@
     <div runat="server" id="jsonDiv" />
     <input type="hidden" id="hdClient" runat="server" />
     </form>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
+    <script src="scripts/calendarscript.js" type="text/javascript"></script>
 </body>
 </html>

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
@@ -35,14 +33,14 @@ public class EventDAO
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                CalendarEvent cevent = new CalendarEvent();
-                cevent.id = (int)reader["event_id"];
-                cevent.title = (string)reader["title"];
-                cevent.description = (string)reader["description"];
-                cevent.start = (DateTime)reader["event_start"];
-                cevent.end = (DateTime)reader["event_end"];
-                cevent.allDay = (bool)reader["all_day"];
-                events.Add(cevent);
+                events.Add(new CalendarEvent() {
+                    id = Convert.ToInt32(reader["event_id"]),
+                    title = Convert.ToString(reader["title"]),
+                    description = (string)reader["description"],
+                    start = Convert.ToDateTime(reader["event_start"]),
+                    end = Convert.ToDateTime(reader["event_end"]),
+                    allDay = Convert.ToBoolean(reader["all_day"])
+                });
             }
         }
         return events;

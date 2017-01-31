@@ -1,5 +1,4 @@
-ASP.NET Event Calendar
-======================
+# ASP.NET Event Calendar
 
 This event calendar implements JQuery [FullCalendar](http://fullcalendar.io/) in ASP.NET.
 
@@ -15,12 +14,13 @@ Features of this event calendar
 
 ### Libraries
 
-* FullCalendar 2.0.3
-* jQuery 2.1.1
-* jQuery UI 1.11.1
-* qTip 2.2.0
+* [FullCalendar 3.1.0](https://fullcalendar.io/)
+* [jQuery 3.1.1](https://jquery.com/)
+* [jQuery UI 1.12.1](http://jqueryui.com/)
+* [qTip 3.0.3](http://qtip2.com/)
+* [Moment.js 2.17.1](http://momentjs.com/)
 
-### Info
+## Info
 
 `EventDAO` class is the main class which interacts with the database and SQL Server express edition has been used. The event information is stored in a table named `Event` in the database.
 
@@ -29,8 +29,8 @@ Features of this event calendar
 |Column Name|Data Type|
 |-----------|---------|
 |event_id|int [identity]|
-|description|VarChar(200)|
 |title|VarChar(100)|
+|description|VarChar(200)|
 |event_start|DateTime|
 |event_end|DateTime|
 |all_day|Bit|

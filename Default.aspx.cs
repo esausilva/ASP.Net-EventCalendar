@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Globalization;
 using System.Text.RegularExpressions;
 
 public partial class _Default : System.Web.UI.Page
@@ -39,15 +34,9 @@ public partial class _Default : System.Web.UI.Page
         List<int> idList = (List<int>)System.Web.HttpContext.Current.Session["idList"];
         if (idList != null && idList.Contains(improperEvent.id))
         {
-            // FullCalendar 1.x
-            //EventDAO.updateEventTime(improperEvent.id,
-            //    DateTime.ParseExact(improperEvent.start, "dd-MM-yyyy hh:mm:ss tt", CultureInfo.InvariantCulture),
-            //    DateTime.ParseExact(improperEvent.end, "dd-MM-yyyy hh:mm:ss tt", CultureInfo.InvariantCulture));
-            
-            // FullCalendar 2.x
             EventDAO.updateEventTime(improperEvent.id,
-                                     Convert.ToDateTime(improperEvent.start).ToUniversalTime(),
-                                     Convert.ToDateTime(improperEvent.end).ToUniversalTime(),
+                                     Convert.ToDateTime(improperEvent.start),
+                                     Convert.ToDateTime(improperEvent.end),
                                      improperEvent.allDay);  //allDay parameter added for FullCalendar 2.x
 
             return "updated event with id:" + improperEvent.id + " update start to: " + improperEvent.start +
@@ -82,21 +71,11 @@ public partial class _Default : System.Web.UI.Page
     [System.Web.Services.WebMethod]
     public static int addEvent(ImproperCalendarEvent improperEvent)
     {
-        // FullCalendar 1.x
-        //CalendarEvent cevent = new CalendarEvent()
-        //{
-        //    title = improperEvent.title,
-        //    description = improperEvent.description,
-        //    start = DateTime.ParseExact(improperEvent.start, "dd-MM-yyyy hh:mm:ss tt", CultureInfo.InvariantCulture),
-        //    end = DateTime.ParseExact(improperEvent.end, "dd-MM-yyyy hh:mm:ss tt", CultureInfo.InvariantCulture)
-        //};
-
-        // FullCalendar 2.x
         CalendarEvent cevent = new CalendarEvent() {
             title = improperEvent.title,
             description = improperEvent.description,
-            start = Convert.ToDateTime(improperEvent.start).ToUniversalTime(),
-            end = Convert.ToDateTime(improperEvent.end).ToUniversalTime(),
+            start = Convert.ToDateTime(improperEvent.start),
+            end = Convert.ToDateTime(improperEvent.end),
             allDay = improperEvent.allDay
         };
 

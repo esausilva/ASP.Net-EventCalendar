@@ -80,28 +80,13 @@ function updateEventOnDropResize(event, allDay) {
         start: event.start
     };
 
-    // FullCalendar 1.x
-    //if (allDay) {
-    //    eventToUpdate.start.setHours(0, 0, 0);
-    //}
-
     if (event.end === null) {
         eventToUpdate.end = eventToUpdate.start;
     }
     else {
         eventToUpdate.end = event.end;
-
-        // FullCalendar 1.x
-        //if (allDay) {
-        //    eventToUpdate.end.setHours(0, 0, 0);
-        //}
     }
 
-    // FullCalendar 1.x
-    //eventToUpdate.start = eventToUpdate.start.format("dd-MM-yyyy hh:mm:ss tt");
-    //eventToUpdate.end = eventToUpdate.end.format("dd-MM-yyyy hh:mm:ss tt");
-
-    // FullCalendar 2.x
     var endDate;
     if (!event.allDay) {
         endDate = new Date(eventToUpdate.end + 60 * 60000);
@@ -121,10 +106,6 @@ function updateEventOnDropResize(event, allDay) {
 function eventDropped(event, dayDelta, minuteDelta, allDay, revertFunc) {
     if ($(this).data("qtip")) $(this).qtip("destroy");
 
-    // FullCalendar 1.x
-    //updateEventOnDropResize(event, allDay);
-
-    // FullCalendar 2.x
     updateEventOnDropResize(event);
 }
 
@@ -214,12 +195,6 @@ $(document).ready(function() {
                 var eventToAdd = {
                     title: $("#addEventName").val(),
                     description: $("#addEventDesc").val(),
-
-                    // FullCalendar 1.x
-                    //start: addStartDate.format("dd-MM-yyyy hh:mm:ss tt"),
-                    //end: addEndDate.format("dd-MM-yyyy hh:mm:ss tt")
-
-                    // FullCalendar 2.x
                     start: addStartDate.toJSON(),
                     end: addEndDate.toJSON(),
 
@@ -239,8 +214,6 @@ $(document).ready(function() {
         }
     });
 
-    
-
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -253,9 +226,17 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
         theme: true,
         header: {
-            left: 'prev,next today',
+            left: 'prev,next today customBtn',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
+        },
+        customButtons: {
+            customBtn: {
+                text: 'Custom Button',
+                click: function() {
+                    alert('This custom button is hot! 🔥\nNow go have fun!');
+                }
+            }
         },
         defaultView: 'agendaWeek',
         eventClick: updateEvent,
