@@ -11,6 +11,7 @@ Features of this event calendar
 * You can add a name and description of the event
 * When you hover over an event opens a modal window with more information about the event
 * Drag & Drop events
+* Rezise events
 
 ### Libraries
 
@@ -39,6 +40,6 @@ To open the project, just open Visual Studio then **File -> Open Website** and s
 
 ## Preview
 
-![Imgur](http://i.imgur.com/ajPxjOnl.png)
+![Imgur](http://i.imgur.com/B0FqAp9l.png)
 
 **Esau Silva**

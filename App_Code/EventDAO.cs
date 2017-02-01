@@ -36,7 +36,7 @@ public class EventDAO
                 events.Add(new CalendarEvent() {
                     id = Convert.ToInt32(reader["event_id"]),
                     title = Convert.ToString(reader["title"]),
-                    description = (string)reader["description"],
+                    description = Convert.ToString(reader["description"]),
                     start = Convert.ToDateTime(reader["event_start"]),
                     end = Convert.ToDateTime(reader["event_end"]),
                     allDay = Convert.ToBoolean(reader["all_day"])
